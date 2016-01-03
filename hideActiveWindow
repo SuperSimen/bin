@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# lastWindow=$(bspc query -H | /home/simen/src/haskell/getLastWordOnLastLineFromInput.hs)
+
+lastWindow=$(xdotool getactivewindow)
+if [ -n "$lastWindow" ]
+then
+	echo "$lastWindow" >> ~/.hidden-windows
+	xdotool windowunmap "$lastWindow"
+fi
