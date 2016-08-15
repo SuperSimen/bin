@@ -4,6 +4,7 @@ set -eu
 
 selectedDesktop=$1
 monitors=($(awk '/bspc monitor.*-d/{print $3}' ~/.config/bspwm/bspwmrc))
+monitors=($(bspc query -M))
 activeMonitor=$(bspc query -H | cut -d " " -f 1 | tail -1)
 
 for i in "${!monitors[@]}"
