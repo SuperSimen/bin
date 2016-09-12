@@ -1,7 +1,20 @@
 #! /bin/bash
 
-function enableDP {
+function office {
     xrandr --output DP1 --auto --left-of DP2 --output DP2 --auto --output eDP1 --primary --auto --left-of DP1
 }
 
-enableDP 
+function home {
+    xrandr --output DP-0 --auto --left-of DP-2 --output DP-2 --auto --primary --output DP-4 --auto --right-of DP-2 --output HDMI-0 --off
+}
+
+function isHome {
+    xrandr | grep DP-4
+}
+
+if isHome
+then
+    home
+else
+    office
+fi
