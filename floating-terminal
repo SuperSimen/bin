@@ -1,6 +1,6 @@
 #! /bin/bash
 
-bspc rule -a urxvt floating=on
-urxvt "$@" &
-sleep 0.1
-bspc rule -r urxvt 
+bspc rule -a termite floating=on
+termite "$@" &
+sleep 0.2
+bspc rule -r termite 
