@@ -1,7 +1,8 @@
 #! /bin/bash
 
 function office {
-    xrandr --output DP1 --auto --left-of DP2 --output DP2 --auto --output eDP1 --primary --auto --left-of DP1
+    # xrandr --output DP1 --auto --left-of DP2 --output DP2 --auto --output eDP1 --auto --pos 0x560 --primary --left-of DP1
+    xrandr --output eDP1 --auto --pos 0x560 --output DP1 --auto --pos 2560x0 --primary --output DP2 --auto --right-of DP1
 }
 
 function home {

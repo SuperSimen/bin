@@ -2,20 +2,7 @@
 
 set -eu
 
-selectedDesktop=$1
-monitors=($(awk '/bspc monitor.*-d/{print $3}' ~/.config/bspwm/bspwmrc))
-monitors=($(bspc query -M))
-activeMonitor=$(bspc query -H | cut -d " " -f 1 | tail -1)
+desktops=($(bspc query -D -m focused))
 
-for i in "${!monitors[@]}"
-do
-    if [ "${monitors[$i]}" == "$activeMonitor" ]
-    then
-        echo "$(($selectedDesktop + ($i * 10)))"
-        exit 1
-    fi
-done
-
-
-
+echo "${desktops[$1 - 1]}"
 

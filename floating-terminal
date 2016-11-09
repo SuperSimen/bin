@@ -1,6 +1,6 @@
 #! /bin/bash
 
-bspc rule -a termite floating=on
+bspc rule -a Termite state=floating
 termite "$@" &
 sleep 0.5
-bspc rule -r termite 
+bspc rule -r Termite 
